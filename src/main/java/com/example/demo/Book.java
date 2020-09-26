@@ -1,12 +1,12 @@
 package com.example.demo;
 
-public class book {
+public class Book {
     private Integer pageCount;
     private String author;
     private String name;
     private Integer bookCount;
 
-    public book() {
+    public Book() {
     }
 
     public Integer getPageCount() {
