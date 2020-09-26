@@ -1,9 +1,7 @@
 package com.example.demo.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.demo.book;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,37 +12,41 @@ import java.util.Map;
 @RestController
 @RequestMapping("books")
 public class messageController {
-    public List<Map<String, String>> books = new ArrayList<Map<String, String>>() {{
+    private List<Map<Integer, book>> books = new ArrayList<Map<Integer, book>>() {{
 
-        add(new HashMap<String, String>() {{
-            put("id", "1");
-            put("avtor", "Gogol");
-            put("pageCount", "150");
+        add(new HashMap<Integer, book>(){{
+
+            book book1 = new book();
+            book1.setAuthor("Gogol");
+            book1.setName("Dead souls");
+            book1.setPageCount(250);
+            book1.setBookCount(1);
+
+        put(book1.getBookCount(), book1);
+
         }});
-        add(new HashMap<String, String>() {{
-            put("id", "2");
-            put("avtor", "Pyshkin");
-            put("pageCount", "200");
+        add(new HashMap<Integer, book>(){{
+
+            book book2 = new book();
+            book2.setAuthor("Pyshkin");
+            book2.setName("White parys");
+            book2.setPageCount(25);
+            book2.setBookCount(2);
+
+            put(book2.getBookCount(), book2);
+
         }});
-        add(new HashMap<String, String>() {{
-            put("id", "3");
-            put("avtor", "Gorkii");
-            put("pageCount", "250");
-        }});
+
+
 
     }};
-
     @GetMapping
-    public List<Map<String, String>> list() {
+    public List<Map<Integer, book>> list() {
         return books;
     }
 
     @GetMapping("{id}")
-    public Map<String, String> getOne(@PathVariable String id) {
-        return books.stream()
-                .filter(books -> books.get("id").equals(id))
-                .findFirst()
-                .orElseThrow();
+    public Map<Integer, book> getOne(@PathVariable Integer id) {
+        return books.get(id);
     }
-
 }
