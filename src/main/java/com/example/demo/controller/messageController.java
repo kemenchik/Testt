@@ -47,6 +47,6 @@ public class messageController {
 
     @GetMapping("{id}")
     public Map<Integer, book> getOne(@PathVariable Integer id) {
-        return books.get(id);
+        return books.get(id-1);
     }
 }
