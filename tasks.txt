@@ -1,0 +1,6 @@
+rest запросы чем отличаются от обычных 
+api телеграмма
+atlassian зарегистрироваться
+git flow 
+url path vs query
+json

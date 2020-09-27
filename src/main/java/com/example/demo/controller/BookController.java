@@ -13,16 +13,15 @@ import java.util.*;
 @RequestMapping("books")
 
 public class BookController {
-    Integer Id;
-    Book book1 = new Book(250, "Dead souls", "Gogol", 1);
-    Book book2 = new Book(25, "White parys", "Pyshkin", 2);
-    private Integer counter = 2;
+    Book book1 = new Book(250, "Dead souls", "Gogol", 14554);
+    Book book2 = new Book(25, "White parys", "Pyshkin", 24554);
     protected List<Book> books = new ArrayList<Book>() {{
 
     }};
 
     @PostConstruct
     private void postConstruct() {
+
         books.add(book1);
         books.add(book2);
     }
@@ -30,15 +29,16 @@ public class BookController {
 
     @GetMapping
     public List<Book> list() {
+
         return books;
     }
 
     @GetMapping("{id}")
     public Book get(@PathVariable int id) {
-        return getBook(id-1);
+        return getBook(id - 1);
     }
-    private Book getBook(@PathVariable Integer id)
-    {
+
+    private Book getBook(@PathVariable Integer id) {
         return books.get(id);
     }
 
@@ -49,19 +49,18 @@ public class BookController {
         return newBook;
 
     }
-    @PutMapping("{id}")
-    public Book update(@PathVariable Integer bookCount, @RequestBody Book thisBook)
-    {
 
-        Book bookDB = getBook(thisBook.getBookCount());
-        books.set(bookCount, bookDB);
+    @PutMapping("{id}")
+    public Book update(@PathVariable Integer id, @RequestBody Book thisBook) {
+
+        Book bookDB = getBook(id);
+        books.set(id, bookDB);
         return thisBook;
     }
+
     @DeleteMapping
-    public void delete(@PathVariable Integer id)
-    {
-        Book bookForDelete = getBook(id-1);
+    public void delete(@PathVariable Integer id) {
+        Book bookForDelete = getBook(id - 1);
         books.remove(bookForDelete);
     }
-
 }

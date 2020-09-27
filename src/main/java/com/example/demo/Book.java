@@ -4,16 +4,16 @@ public class Book {
     private Integer pageCount;
     private String author;
     private String name;
-    private Integer bookCount;
+    private Integer ID;
 
-    public Book(Integer pageCount, String name, String author, Integer bookCount) {
+    public Book(Integer pageCount, String name, String author, Integer ID) {
         setName(name);
         setPageCount(pageCount);
-        setBookCount(bookCount);
+        setID(ID);
         setAuthor(author);
         this.name=getName();
         this.author = getAuthor();
-        this.bookCount = getBookCount();
+        this.ID = getID();
         this.pageCount = getPageCount();
     }
 
@@ -41,11 +41,11 @@ public class Book {
         this.name = name;
     }
 
-    public Integer getBookCount() {
-        return bookCount;
+    public Integer getID() {
+        return ID;
     }
 
-    public void setBookCount(Integer bookCount) {
-        this.bookCount = bookCount;
+    public void setID(Integer bookCount) {
+        this.ID = bookCount;
     }
 }
