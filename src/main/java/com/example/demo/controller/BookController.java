@@ -52,9 +52,8 @@ public class BookController {
 
     @PutMapping("{id}")
     public Book update(@PathVariable Integer id, @RequestBody Book thisBook) {
-
-        Book bookDB = getBook(id);
-        books.set(id, bookDB);
+        
+        books.set(id, thisBook);
         return thisBook;
     }
 
