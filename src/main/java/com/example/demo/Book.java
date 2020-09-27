@@ -6,7 +6,15 @@ public class Book {
     private String name;
     private Integer bookCount;
 
-    public Book() {
+    public Book(Integer pageCount, String name, String author, Integer bookCount) {
+        setName(name);
+        setPageCount(pageCount);
+        setBookCount(bookCount);
+        setAuthor(author);
+        this.name=getName();
+        this.author = getAuthor();
+        this.bookCount = getBookCount();
+        this.pageCount = getPageCount();
     }
 
     public Integer getPageCount() {
